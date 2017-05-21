@@ -19,10 +19,12 @@ gameDisplay = pygame.display.set_mode((800,600))
 pygame.display.set_caption('Our game')
 
 gameExit = False
-#let's start at upper left corner
+
 lead_x = 0
 lead_y = 0
 lead_x_change = 0
+
+clock = pygame.time.Clock()
 #we will create game loop
 while not gameExit:
     for event in pygame.event.get():
@@ -33,14 +35,21 @@ while not gameExit:
                 lead_x_change = -10
             if event.key == pygame.K_RIGHT:
                 lead_x_change = 10
+        #stop movement if we stop pressing the key
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                lead_x_change = 0
 
     lead_x += lead_x_change
-    #we choose white as our background color
     gameDisplay.fill(white)
-    #add some other graphics
-    pygame.draw.rect(gameDisplay, purple, [lead_x, lead_y,50,50])
+    pygame.draw.rect(gameDisplay, purple, [lead_x, lead_y,20,20])
+
+
     pygame.display.update()
-#quite the game == uninitializing
+
+    #declare FPS
+    clock.tick(30)
+
 pygame.quit()
 
 quit()
