@@ -9,4 +9,5 @@ PyGame tutorial. We will create simple game by making tons of basic programs.
 <li><code><a href="https://github.com/AlekKras/pygame/blob/master/5.py">5.py</a></code> Do some graphics </li>
 <li><code><a href="https://github.com/AlekKras/pygame/blob/master/6.py">6.py</a></code> Add basic movement</li>
 <li><code><a href="https://github.com/AlekKras/pygame/blob/master/7.py">7.py</a></code> Up and down moves</li>
+<li><code><a href="https://github.com/AlekKras/pygame/blob/master/8.py">8.py</a></code> Creating boundaries and fixing problems </li>
 </ul>
