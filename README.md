@@ -1,5 +1,6 @@
 # pygame
-PyGame tutorial. We will create simple game by making tons of basic programs.
+PyGame snake in &#8776; 30 steps <br/>
+<img src="http://fab.cba.mit.edu/classes/863.12/people/lindy/week7/images/typing2.gif">
 <h2>Steps</h2>
 <ul>
 <li><code><a href="https://github.com/AlekKras/pygame/blob/master/1.py">1.py</a></code> Creating basic framework </li>
@@ -13,4 +14,5 @@ PyGame tutorial. We will create simple game by making tons of basic programs.
 <li><code><a href="https://github.com/AlekKras/pygame/blob/master/9.py">9.py</a></code> Adding some text</li>
 <li><code><a href="https://github.com/AlekKras/pygame/blob/master/10.py">10.py</a></code>Adding one apple</li>
 <li><code><a href="https://github.com/AlekKras/pygame/blob/master/11.py">11.py</a></code>Snake functionality(basic) and apple</li>
+<li><code><a href="https://github.com/AlekKras/pygame/blob/master/11.py">12.py</a></code>Handling big objects</li>
 </ul>
