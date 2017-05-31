@@ -14,5 +14,6 @@ PyGame snake in &#8776; 30 steps <br/>
 <li><code><a href="https://github.com/AlekKras/pygame/blob/master/9.py">9.py</a></code> Adding some text</li>
 <li><code><a href="https://github.com/AlekKras/pygame/blob/master/10.py">10.py</a></code>Adding one apple</li>
 <li><code><a href="https://github.com/AlekKras/pygame/blob/master/11.py">11.py</a></code>Snake functionality(basic) and apple</li>
-<li><code><a href="https://github.com/AlekKras/pygame/blob/master/11.py">12.py</a></code>Handling big objects</li>
+<li><code><a href="https://github.com/AlekKras/pygame/blob/master/12.py">12.py</a></code>Handling big objects</li>
+<li><code><a href="https://github.com/AlekKras/pygame/blob/master/13.py">13.py</a></code>Snake head</li>
 </ul>
