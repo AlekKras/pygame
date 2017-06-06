@@ -17,4 +17,5 @@ PyGame snake in &#8776; 30 steps <br/>
 <li><code><a href="https://github.com/AlekKras/pygame/blob/master/12.py">12.py</a></code>Handling big objects</li>
 <li><code><a href="https://github.com/AlekKras/pygame/blob/master/13.py">13.py</a></code>Snake head</li>
 <li><code><a href="https://github.com/AlekKras/pygame/blob/master/14.py">14.py</a></code>Apple and logo icons</li>
+<li><code><a href="https://github.com/AlekKras/pygame/blob/master/15.py">15.py</a></code>Creating score and pausing the game</li>
 </ul>
