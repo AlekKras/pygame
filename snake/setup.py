@@ -9,7 +9,7 @@ import cx_Freeze
 
 executables = [
         
-        cx_Freeze.Executable("1.py") 
+        cx_Freeze.Executable("snake.py") 
 ] 
 cx_Freeze.setup( 
         name = "Pygame Snake", 
