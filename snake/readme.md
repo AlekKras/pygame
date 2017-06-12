@@ -19,3 +19,6 @@ PyGame snake in 15 steps <br/>
 <li><code><a href="https://github.com/AlekKras/pygame/blob/master/snake/14.py">14.py</a></code>Apple and logo icons</li>
 <li><code><a href="https://github.com/AlekKras/pygame/blob/master/snake/15.py">15.py</a></code>Creating score and pausing the game</li>
 </ul>
+<h1> Complete Snake game <a href="https://github.com/AlekKras/pygame/blob/master/snake/snake.py">here</a></h1>
+<img src="https://media.giphy.com/media/2lbhL8dSGMh8I/giphy.gif">
+
