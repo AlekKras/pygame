@@ -1,5 +1,5 @@
 # pygame
-PyGame snake in &#8776; 30 steps <br/>
+PyGame snake in 15 steps <br/>
 <img src="http://fab.cba.mit.edu/classes/863.12/people/lindy/week7/images/typing2.gif">
 <h2>Steps</h2>
 <ul>
