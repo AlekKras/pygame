@@ -29,9 +29,9 @@ hover_yellow = (255,255,0)
 clock = pygame.time.Clock()
 
 #in case you don't have Comic Sans fonts, download them and refer to them as follow:
-smallfont = pygame.font.Font("comicsansms.ttf", 25)
-medfont = pygame.font.Font("comicsansms.ttf", 50)
-largefont = pygame.font.Font("comicsansms.ttf", 85)
+smallfont = pygame.font.Font("euphoric.ttf", 25)
+medfont = pygame.font.Font("euphoric.ttf", 50)
+largefont = pygame.font.Font("euphoric.ttf", 85)
 
 #let's define Tank's width and height
 tankWidth = 40
@@ -39,12 +39,6 @@ tankHeight = 20
 
 gunWidth = 5
 wheelWidth = 3
-
-
-def score(score):
-    text = smallfont.render("Score: " + str(score), True, black)
-    gameDisplay.blit(text, [0, 0])
-
 
 def text_objects(text, color, size="small"):
     if size == "small":
@@ -162,8 +156,41 @@ def barrier(x_location, randomHeight, barrier_width):
 
     pygame.draw.rect(gameDisplay, green, [x_location, display_height - randomHeight, barrier_width, randomHeight])
 
+#explosion function
+def explosion(x, y, size = 50):
+
+    explode = True
+
+    while explode:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+
+        startPoint = x, y
+
+        colorChoices = [red, hover_red, yellow, hover_yellow]
+
+        magnitude = 1
+
+        while magnitude < size:
+            exploding_bit_x = x + random.randrange(-1 * magnitude, magnitude)
+            exploding_bit_y = y + random.randrange(-1 * magnitude, magnitude)
+
+            pygame.draw.circle(gameDisplay,
+                               colorChoices[random.randrange(0, 4)],
+                               (exploding_bit_x, exploding_bit_y),
+                               random.randrange(1, 5))
+            magnitude += 1
+
+            pygame.display.update()
+            clock.tick(100)
+
+        explode = False
+
+
 #firing function
-def fireShell(x_y, tank_X, tank_Y, tur_Pos, gun_power):
+def fireShell(x_y, tank_X, tank_Y, tur_Pos, gun_power, x_location, barrier_width, randomHeight):
     fire = True
     startShell = list(x_y)
 
@@ -180,35 +207,35 @@ def fireShell(x_y, tank_X, tank_Y, tur_Pos, gun_power):
         startShell[0] -= (12 - tur_Pos)*2
 
         # y = x**2
-        startShell[1] += int((((startShell[0]-x_y[0])*0.015)**2) - (tur_Pos+tur_Pos/((gunWidth*2+wheelWidth)-tur_Pos)))
-
-        if startShell[1] > display_height:
-            fire = False
-
-        pygame.display.update()
-        clock.tick(60)
-
-def fireShell2(x_y, tank_X, tank_Y, tur_Pos, gun_power):
-    fire = True
-    startShell = list(x_y)
-
-    message_to_screen("FIRE...", red)
-    while fire:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                quit()
-
-        #print(startShell[0],startShell[1])
-        pygame.draw.circle(gameDisplay, green, (startShell[0],startShell[1]),5)
-
-        startShell[0] -= (12 - tur_Pos)*2
-
-        # y = x**2
         startShell[1] += int((((startShell[0]-x_y[0])*0.015/(gun_power/50))**2) - (tur_Pos+tur_Pos/((gunWidth*2+wheelWidth)-tur_Pos)))
 
         if startShell[1] > display_height:
+            print("Last shell:", startShell[0], startShell[1])
+            #time for crap coding
+            hit_x = int((startShell[0]*display_height)/startShell[1])
+            hit_y = int(display_height)
+            '''
+                hit_x         startShell[0] 
+            -------------  = --------------
+            display_height    startShell[1]
+            
+            we solve for hit_x
+            '''
+            print("Impact", hit_x, hit_y)
+            #end of crap coding
+            #explosion shell
+            explosion(hit_x, hit_y)
             fire = False
+
+        #more crap code
+        point_x = startShell[0] <= x_location + barrier_width and startShell[0] >= x_location
+        point_y = startShell[1] <= display_height and startShell[1] >= display_height - randomHeight
+        if point_x and point_x:
+            hit_x = int(startShell[0])
+            hit_y = int(startShell[1])
+            explosion(hit_x, hit_y)
+
+        #end crap code
 
         pygame.display.update()
         clock.tick(60)
@@ -274,10 +301,6 @@ def gameLoop():
     randomHeight = random.randrange(display_height * 0.1, display_height * 0.6)
 
     while not gameExit:
-
-        gameDisplay.fill(white)
-        gun = tank(mainTankX, mainTankY, currentGunPosition)
-
         if gameOver == True:
             # gameDisplay.fill(white)
             message_to_screen("Game Over", red, -50, size="large")
@@ -319,8 +342,7 @@ def gameLoop():
                     pause()
 
                 elif event.key == pygame.K_SPACE:
-                    fireShell(gun, mainTankX, mainTankY, currentGunPosition, fire_power)
-
+                    fireShell(gun, mainTankX, mainTankY, currentGunPosition, fire_power, x_location, barrier_width, randomHeight)
                 elif event.key == pygame.K_a:
                     power_change -= 1
                 elif event.key == pygame.K_d:
@@ -351,6 +373,9 @@ def gameLoop():
         elif (mainTankX + tankWidth/2) > display_width:
             message_to_screen("Don't leave the battleground!", red)
             mainTankX = display_width - tankWidth/2
+
+        gameDisplay.fill(white)
+        gun = tank(mainTankX, mainTankY, currentGunPosition)
 
         fire_power += power_change
         power(fire_power)
