@@ -5,6 +5,7 @@ PyGame Tanks in ~5 steps <br/>
 <ul>
 <li><code><a href="https://github.com/AlekKras/pygame/blob/master/tanks/1.py">1.py</a></code> Creating basic tank movement</li>
 <li><code><a href="https://github.com/AlekKras/pygame/blob/master/tanks/2.py">2.py</a></code> Creating a barrier </li>
+  <li><code><a href="https://github.com/AlekKras/pygame/blob/master/tanks/3.py">3.py</a></code> Shooting </li>
 </ul>
 
 
