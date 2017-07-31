@@ -8,6 +8,7 @@ PyGame Tanks in ~10 steps <br/>
   <li><code><a href="https://github.com/AlekKras/pygame/blob/master/tanks/3.py">3.py</a></code> Shooting </li>
   <li><code><a href="https://github.com/AlekKras/pygame/blob/master/tanks/4.py">4.py</a></code> Adding ground </li>
     <li><code><a href="https://github.com/AlekKras/pygame/blob/master/tanks/5.py">5.py</a></code> Adding an enemy tank </li>
+  <li><code><a href="https://github.com/AlekKras/pygame/blob/master/tanks/6.py">6.py</a></code>Health bars</li>
 </ul>
 
 
