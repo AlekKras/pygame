@@ -257,8 +257,6 @@ def fireShell(x_y, tank_X, tank_Y, tur_Pos, gun_power, x_location, barrier_width
             if enemyTankX + 15 > hit_x > enemyTankX - 15:
                 damage = 25
 
-
-
             explosion(hit_x, hit_y)
             fire = False
 
